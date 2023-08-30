@@ -1,0 +1,69 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: SS FF, SS, LIC=PE7DL-0DMB0-742S0-BE4MA-4JUCX-WG6UJ
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DARMSTM.DLL V1.68.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TARMSTM.DLL V1.66.0.0
+ 
+<h2>Project:</h2>
+C:\Users\lenovo\Desktop\LED_EXTI_FLASH\User\Key.uvprojx
+Project File Date:  08/21/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Key'
+compiling Led_Exti.c...
+..\Hardware\Led_Exti.h(8): warning:  #1295-D: Deprecated declaration AFIO_Exit_NVIC_Init - give arg types
+  void AFIO_Exit_NVIC_Init();
+..\Hardware\Led.h(8): warning:  #1295-D: Deprecated declaration Led_Init - give arg types
+  GPIO_InitTypeDef Led_Init();
+..\Hardware\Led.h(9): warning:  #1295-D: Deprecated declaration Led_on - give arg types
+  void Led_on();
+..\Hardware\Led.h(10): warning:  #1295-D: Deprecated declaration Led_off - give arg types
+  void Led_off();
+..\Hardware\Led.h(11): warning:  #1295-D: Deprecated declaration Led_flash - give arg types
+  void Led_flash();
+..\Hardware\Led.h(12): warning:  #1295-D: Deprecated declaration Led_flash - give arg types
+  void Led_flash();
+..\Hardware\Led.h(13): warning:  #1295-D: Deprecated declaration Led_flash - give arg types
+  void Led_flash();
+..\Hardware\Led.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Hardware\Led_Exti.c(46): warning:  #1-D: last line of file ends without a newline
+      
+..\Hardware\Led_Exti.c: 9 warnings, 0 errors
+linking...
+Program Size: Code=1280 RO-data=320 RW-data=0 ZI-data=608  
+FromELF: creating hex file...
+".\Objects\Key.axf" - 0 Error(s), 9 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.0.pack
+                Keil.STM32F1xx_DFP.2.4.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  C:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>

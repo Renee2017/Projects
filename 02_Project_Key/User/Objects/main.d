@@ -1,0 +1,12 @@
+.\objects\main.o: main.c
+.\objects\main.o: ..\CMSIS\stm32f10x.h
+.\objects\main.o: ..\CMSIS\core_cm3.h
+.\objects\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: ..\CMSIS\system_stm32f10x.h
+.\objects\main.o: ..\User\stm32f10x_conf.h
+.\objects\main.o: ..\Library\inc\stm32f10x_gpio.h
+.\objects\main.o: ..\CMSIS\stm32f10x.h
+.\objects\main.o: ..\Library\inc\stm32f10x_rcc.h
+.\objects\main.o: ..\Hardware\Key.h
+.\objects\main.o: ..\Library\Delay.h
+.\objects\main.o: ..\Hardware\Led.h

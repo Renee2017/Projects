@@ -1,0 +1,118 @@
+<html>
+<body>
+<pre>
+<h1>�Vision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ��Vision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: SS FF, SS, LIC=PE7DL-0DMB0-742S0-BE4MA-4JUCX-WG6UJ
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DARMSTM.DLL V1.68.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TARMSTM.DLL V1.66.0.0
+ 
+<h2>Project:</h2>
+C:\Users\lenovo\Desktop\Project_Key\User\Key.uvprojx
+Project File Date:  08/20/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Key'
+compiling Led_Exti.c...
+Led_Exti.c(6): warning:  #77-D: this declaration has no storage class or type specifier
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_AFIO, ENABLE);             //打开AFIO时钟总线
+Led_Exti.c(6): error:  #92: identifier-list parameters may only be used in a function definition
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_AFIO, ENABLE);             //打开AFIO时钟总线
+Led_Exti.c(6): error:  #147: declaration is incompatible with "void RCC_APB1PeriphClockCmd(uint32_t, FunctionalState)"  (declared at line 396 of "..\Library\inc\stm32f10x_rcc.h")
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_AFIO, ENABLE);             //打开AFIO时钟总线
+Led_Exti.c(7): error:  #79: expected a type specifier
+  GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource1);     //选择输入线，操作AFIO
+Led_Exti.c(7): error:  #79: expected a type specifier
+  GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource1);     //选择输入线，操作AFIO
+Led_Exti.c(7): warning:  #77-D: this declaration has no storage class or type specifier
+  GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource1);     //选择输入线，操作AFIO
+Led_Exti.c(7): error:  #147: declaration is incompatible with "void GPIO_EXTILineConfig(uint8_t, uint8_t)"  (declared at line 308 of "..\Library\inc\stm32f10x_gpio.h")
+  GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource1);     //选择输入线，操作AFIO
+Led_Exti.c(11): error:  #20: identifier "EXTI_InitTypeDef" is undefined
+  	EXTI_InitTypeDef EXTI_InitStruct;
+Led_Exti.c(12): error:  #20: identifier "EXTI_Line1" is undefined
+  	EXTI_InitStruct.EXTI_Line = EXTI_Line1;               //设置GPIOA的第几个IO�?
+Led_Exti.c(13): error:  #20: identifier "EXTI_Mode_Interrupt" is undefined
+  	EXTI_InitStruct.EXTI_Mode = EXTI_Mode_Interrupt;      //设置是事件（EVENT）还是中�?(Interrupt)
+Led_Exti.c(14): error:  #20: identifier "EXTI_Trigger_Rising" is undefined
+  	EXTI_InitStruct.EXTI_Trigger = EXTI_Trigger_Rising;   //设置上升�?(Rising)还是下降沿触�?(Falling)或者跳变沿触发（Rising_Falling�?
+Led_Exti.c(16): warning:  #223-D: function "EXTI_Init" declared implicitly
+  	EXTI_Init(&EXTI_InitStruct);                          //写入设置好的参数
+Led_Exti.c(20): error:  #20: identifier "NVIC_InitTypeDef" is undefined
+  	NVIC_InitTypeDef NVIC_InitStruct;
+Led_Exti.c(21): warning:  #223-D: function "NVIC_PriorityGroupConfig" declared implicitly
+  	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);//配置优先级组�?0�?5），1个位主优先级�?3个位表示次优先级
+Led_Exti.c(21): error:  #20: identifier "NVIC_PriorityGroup_1" is undefined
+  	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);//配置优先级组�?0�?5），1个位主优先级�?3个位表示次优先级
+Led_Exti.c(26): warning:  #223-D: function "NVIC_Init" declared implicitly
+  	NVIC_Init(&NVIC_InitStruct);
+Led_Exti.c(29): warning:  #1-D: last line of file ends without a newline
+      
+Led_Exti.c(18): warning:  #177-D: function "EXTI_NVIC_Config"  was declared but never referenced
+  static void EXTI_NVIC_Config(void)	//初始化嵌套向量控制寄存器，配置中断优先级   static字符为限制作用域为本文件（bsp_exti.c�?
+Led_Exti.c: 7 warnings, 11 errors
+compiling Key.c...
+..\Hardware\Key.h(6): warning:  #1295-D: Deprecated declaration Key_Init - give arg types
+  void Key_Init();
+..\Hardware\Key.h(7): warning:  #1295-D: Deprecated declaration Key_KeepKeyForLED - give arg types
+  void Key_KeepKeyForLED();
+..\Hardware\Key.h(8): warning:  #1295-D: Deprecated declaration Key_tapKeyForLED - give arg types
+  void Key_tapKeyForLED();
+..\Hardware\Key.h(9): warning:  #1295-D: Deprecated declaration Key_tapKeyForLED_ReadLED - give arg types
+  void Key_tapKeyForLED_ReadLED();
+..\Hardware\Key.h(11): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Library\Delay.h(9): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Hardware\Led.h(8): warning:  #1295-D: Deprecated declaration Led_Init - give arg types
+  GPIO_InitTypeDef Led_Init();
+..\Hardware\Led.h(9): warning:  #1295-D: Deprecated declaration Led_on - give arg types
+  void Led_on();
+..\Hardware\Led.h(10): warning:  #1295-D: Deprecated declaration Led_off - give arg types
+  void Led_off();
+..\Hardware\Led.h(11): warning:  #1295-D: Deprecated declaration Led_flash - give arg types
+  void Led_flash();
+..\Hardware\Led.h(12): warning:  #1295-D: Deprecated declaration Led_flash - give arg types
+  void Led_flash();
+..\Hardware\Led.h(13): warning:  #1295-D: Deprecated declaration Led_flash - give arg types
+  void Led_flash();
+..\Hardware\Led.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Hardware\Key.c(85): warning:  #1-D: last line of file ends without a newline
+  void Key_new_tapKeyForLED_ReadLED()//按键每点按两次灯灭，每点按一次灯�?
+..\Hardware\Key.c(85): warning:  #1295-D: Deprecated declaration Key_new_tapKeyForLED_ReadLED - give arg types
+  void Key_new_tapKeyForLED_ReadLED()//按键每点按两次灯灭，每点按一次灯�?
+..\Hardware\Key.c(85): error: At end of source:  #65: expected a ";"
+..\Hardware\Key.c: 15 warnings, 1 error
+".\Objects\Key.axf" - 12 Error(s), 22 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.0.pack
+                Keil.STM32F1xx_DFP.2.4.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  C:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Target not created.
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>

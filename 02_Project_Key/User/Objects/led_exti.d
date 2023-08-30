@@ -1,0 +1,10 @@
+.\objects\led_exti.o: Led_Exti.c
+.\objects\led_exti.o: ..\CMSIS\stm32f10x.h
+.\objects\led_exti.o: ..\CMSIS\core_cm3.h
+.\objects\led_exti.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\led_exti.o: ..\CMSIS\system_stm32f10x.h
+.\objects\led_exti.o: ..\User\stm32f10x_conf.h
+.\objects\led_exti.o: ..\Library\inc\stm32f10x_gpio.h
+.\objects\led_exti.o: ..\CMSIS\stm32f10x.h
+.\objects\led_exti.o: ..\Library\inc\stm32f10x_rcc.h
+.\objects\led_exti.o: ..\Hardware\Led_Exti.h
