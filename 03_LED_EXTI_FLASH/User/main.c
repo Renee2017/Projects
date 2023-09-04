@@ -4,7 +4,7 @@
 #include "Led.h"
 #include "Led_Exti.h"
 
-void SystemInit();//Systemlnit初始化函数会在main函数调用之前被执行
+void SystemInit();//Systemlnit初始化函数用于配置时钟系统，会在main函数调用之前被执行
 //void Led_flash();//声明可以有多次,定义只能有一次
 
 int main(void)

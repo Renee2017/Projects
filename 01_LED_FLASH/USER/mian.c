@@ -8,7 +8,7 @@ void Delay(__IO u32 nCount)//延时函数，通过循环的方式来达到延时
 	}
 } 
 
-void SystemInit();//Systemlnit初始化函数会在main函数调用之前被执行
+void SystemInit();//Systemlnit初始化函数，用于配置时钟树，会在main函数调用之前被执行
 
 int main(void)
 {
