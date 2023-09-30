@@ -1,0 +1,48 @@
+struct  TIM_TimeBaseInitStruct
+{
+  uint16_t TIM_Prescaler;
+  uint16_t TIM_CounterMode;
+  uint16_t TIM_Period;
+  uint16_t TIM_ClockDivision;
+  uint8_t TIM_RepetitionCounter;
+};
+
+struct TIM_TimeBaseInitType aaa;
+aaa.TIM_Prescaler = 1;
+
+
+--------------------------------------------------
+typedef struct  TIM_TimeBaseInitStruct
+{
+  uint16_t TIM_Prescaler;
+  uint16_t TIM_CounterMode;
+  uint16_t TIM_Period;
+  uint16_t TIM_ClockDivision;
+  uint8_t TIM_RepetitionCounter;
+}AAA;
+
+struct TIM_TimeBaseInitType bbb;
+bbb.TIM_Prescaler = 1;
+
+AAA aaa;
+aaa.TIM_Prescaler = 1;
+
+--------------------------------------------------
+typedef struct
+{
+  uint16_t TIM_Prescaler;
+  uint16_t TIM_CounterMode;
+  uint16_t TIM_Period;
+  uint16_t TIM_ClockDivision;
+  uint8_t TIM_RepetitionCounter;
+}AAA;
+
+AAA aaa;
+aaa.TIM_Prescaler = 1;
+
+----------------------------
+结构体也是一种数据类型
+
+结构体大小  字节对齐 操作内存都是以4为一个单位分配空间
+
+

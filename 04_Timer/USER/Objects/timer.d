@@ -1,0 +1,13 @@
+.\objects\timer.o: ..\CMSIS\Timer.c
+.\objects\timer.o: ..\CMSIS\Timer.h
+.\objects\timer.o: ..\CMSIS\stm32f10x.h
+.\objects\timer.o: ..\CMSIS\core_cm3.h
+.\objects\timer.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\timer.o: ..\CMSIS\system_stm32f10x.h
+.\objects\timer.o: ..\USER\stm32f10x_conf.h
+.\objects\timer.o: ..\FWLIB\inc\stm32f10x_gpio.h
+.\objects\timer.o: ..\CMSIS\stm32f10x.h
+.\objects\timer.o: ..\FWLIB\inc\stm32f10x_rcc.h
+.\objects\timer.o: ..\FWLIB\inc\stm32f10x_tim.h
+.\objects\timer.o: ..\FWLIB\inc\misc.h
+.\objects\timer.o: ..\USER\Led.h

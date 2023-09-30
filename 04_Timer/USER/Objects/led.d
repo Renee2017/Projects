@@ -1,0 +1,10 @@
+.\objects\led.o: Led.c
+.\objects\led.o: Led.h
+.\objects\led.o: ..\CMSIS\stm32f10x.h
+.\objects\led.o: ..\CMSIS\core_cm3.h
+.\objects\led.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\led.o: ..\CMSIS\system_stm32f10x.h
+.\objects\led.o: ..\USER\stm32f10x_conf.h
+.\objects\led.o: ..\FWLIB\inc\stm32f10x_gpio.h
+.\objects\led.o: ..\CMSIS\stm32f10x.h
+.\objects\led.o: ..\FWLIB\inc\stm32f10x_rcc.h

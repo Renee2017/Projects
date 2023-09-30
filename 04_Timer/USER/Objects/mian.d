@@ -1,0 +1,9 @@
+.\objects\mian.o: mian.c
+.\objects\mian.o: ..\CMSIS\stm32f10x.h
+.\objects\mian.o: ..\CMSIS\core_cm3.h
+.\objects\mian.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mian.o: ..\CMSIS\system_stm32f10x.h
+.\objects\mian.o: ..\USER\stm32f10x_conf.h
+.\objects\mian.o: ..\FWLIB\inc\stm32f10x_gpio.h
+.\objects\mian.o: ..\CMSIS\stm32f10x.h
+.\objects\mian.o: ..\FWLIB\inc\stm32f10x_rcc.h
