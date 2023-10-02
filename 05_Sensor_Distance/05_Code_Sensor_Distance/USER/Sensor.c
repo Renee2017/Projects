@@ -6,7 +6,7 @@ int T2=0;
 int T=0;
 int STEP = 0;
 
-//配置trig和echo对应的PA10和PA11
+//配置trig和echo对应的PA12和PA11
 void Pin_Init()
 {
 	GPIO_InitTypeDef Struct1;// 在main函数开头定义一个含端口配置信息的结构体（或者工程选项，C/C++勾选C99 Mode,） 

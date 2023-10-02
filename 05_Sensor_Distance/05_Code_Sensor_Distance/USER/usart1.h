@@ -3,6 +3,7 @@
 
 #include "stm32f10x.h"
 #include <stdio.h>
+#include "stm32f10x_usart.h"
 
 void USART1_Config(void);
 int fputc(int ch, FILE *f);

@@ -9,5 +9,5 @@
 .\usart1.o: ..\CMSIS\stm32f10x.h
 .\usart1.o: ..\FWLIB\inc\stm32f10x_rcc.h
 .\usart1.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\usart1.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\usart1.o: ..\FWLIB\inc\stm32f10x_usart.h
+.\usart1.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

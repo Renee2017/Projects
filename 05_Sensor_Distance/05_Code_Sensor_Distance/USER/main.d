@@ -13,3 +13,4 @@
 .\main.o: ..\FWLIB\inc\misc.h
 .\main.o: usart1.h
 .\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\main.o: ..\FWLIB\inc\stm32f10x_usart.h
