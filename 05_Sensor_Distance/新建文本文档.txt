@@ -1,0 +1,45 @@
+
+
+
+main(){
+
+    systeminit()
+    gpioinit()
+    setgpio(0)
+    exit_init()
+    timer_init()
+    while(1)
+    {
+      setgpio(1)
+      delay(15us)
+      setgpio(0)
+      delay(500)
+
+      if(vaild_flag !=0)
+      {
+          gettimevalue- defaultvalue *340 /2 
+      }
+    }
+}
+
+
+Exit_hanlder()
+{
+   if(0->1)
+  {
+    SetTime(enable)	
+  }
+  if(1->0)
+  {
+    SetTime(disable)	
+    vaild_flag = 1;
+  }
+}
+
+
+Time_handler()
+{
+   vaild_flag = 0;
+}
+
+
