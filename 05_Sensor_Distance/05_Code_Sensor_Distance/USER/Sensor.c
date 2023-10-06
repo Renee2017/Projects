@@ -44,7 +44,7 @@ void AFIO_Exit_NVIC_Init()
 //	
 	//³õÊ¼»¯AFIO
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);             //´ò¿ªAFIOÊ±ÖÓ×ÜÏß
-	GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource11);     //Ñ¡ÔñÊäÈëÏß£¬²Ù×÷AFIO
+	GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource11);     //Ñ¡ÔñÊäÈëÏßPA11(ÖĞ¶ÏÊÇÓÉecho¶ÔÓ¦µÄpin½Ç·¢ÉúµÄ)£¬²Ù×÷AFIO
 
 	
 	//³õÊ¼»¯EXTI½á¹¹Ìå(²»ĞèÒª¿ªÆôÊ±ÖÓ)
@@ -80,7 +80,7 @@ void Timer_init(void)
 	TIM_TimeBaseInitStructure.TIM_CounterMode=TIM_CounterMode_Up;//È·¶¨¼ÆÊıÆ÷µÄ¼ÆÊıÄ£Ê½
 	TIM_TimeBaseInitStructure.TIM_Period=50000-1;//È·¶¨ARR×Ô¶¯ÖØ×°Æ÷µÄÖµ
 	TIM_TimeBaseInitStructure.TIM_Prescaler=720-1;//Ô¤·ÖÆµÆ÷µÄÖµ£¬²ÎÕÕ¹«Ê½£º¶¨Ê±ÆµÂÊ=72MHZ/(PSC+1)/(ARR+1)£¬ÉèÖÃ¶¨Ê±ÆµÂÊ
-	//Îª1s£¬ÔòpscÎª7200-1£¬ARRÎª10000-1£¬×¢ÒâËüÃÇµÄÖµ¶¼²»ÄÜ³¬¹ı65535£¬ÒòÎªÊÇ16Î»¶¨Ê±Æ÷
+	//Îª0.5s£¬ÔòpscÎª7200-1£¬ARRÎª10000-1£¬×¢ÒâËüÃÇµÄÖµ¶¼²»ÄÜ³¬¹ı65535£¬ÒòÎªÊÇ16Î»¶¨Ê±Æ÷
 	TIM_TimeBaseInitStructure.TIM_RepetitionCounter=0;//ÖØ¸´¼ÆÊıÆ÷µÄÖµ£¬ÓÃÓÚ¸ß¼¶¼ÆÊıÆ÷£¬´ËÏîÄ¿ÓÃ²»µ½£¬È¡ÖµÎª0
 	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseInitStructure);//Ê±»ùµ¥Ôª³õÊ¼»¯
 	
@@ -126,7 +126,7 @@ void EXTI15_10_IRQHandler(void)//ÖĞ¶Ïº¯Êı¶¼ÊÇÎŞ²ÎÎŞ·µ»ØÖµµÄ¡£ÖĞ¶Ïº¯ÊıÎŞĞèÉùÃ÷£¬Ò
 void TIM2_IRQHandler(void)
 {
 	
-	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET)
+	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET)//¶¨Ê±Æ÷µÄÖĞ¶Ï±êÖ¾Î»×´Ì¬ÉèÖÃ³É¹¦
 	{
 		STEP = -1;
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);

@@ -12,9 +12,7 @@ void delay_us(int value)
 		i --;
 }
 
-void delay_ms(unsigned long time)
-{unsigned long i,j;
-  
+C
 	for(j=0; j<time; j++)
 	{
 	   for(i=0;i<12000;i++);
