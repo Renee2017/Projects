@@ -71,7 +71,7 @@ void AFIO_Exit_NVIC_Init()
 
 void Timer_init(void)
 {
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);//¿ªÆôAPB1Ê±ÖÓ£¬ÒòÎªÖ»ÓĞTIM1ÊÇAPB2×ÜÏßµÄÍâÉè£¬TIM1-8¶¼ÊÇAPB1×ÜÏßµÄÍâÉè
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);//¿ªÆôAPB1Ê±ÖÓ£¬ÒòÎªÖ»ÓĞTIM1¡¢8£¨¸ß¼¶¶¨Ê±Æ÷£©ÊÇAPB2×ÜÏßµÄÍâÉè£¬ÆäËû¶¨Ê±Æ÷¶¼ÊÇAPB1×ÜÏßµÄÍâÉè
 	
 	TIM_InternalClockConfig(TIM2);//Ñ¡ÔñÄÚ²¿Ê±ÖÓ×÷ÎªÊ±»ùµ¥ÔªµÄÊ±ÖÓ¡£´ËĞĞ´úÂë¿ÉÒÔÊ¡ÂÔ£¬ÒòÎª¶¨Ê±Æ÷Ä¬ÈÏÊ±ÖÓÎªÄÚ²¿Ê±ÖÓ
 	
@@ -80,7 +80,7 @@ void Timer_init(void)
 	TIM_TimeBaseInitStructure.TIM_CounterMode=TIM_CounterMode_Up;//È·¶¨¼ÆÊıÆ÷µÄ¼ÆÊıÄ£Ê½
 	TIM_TimeBaseInitStructure.TIM_Period=50000-1;//È·¶¨ARR×Ô¶¯ÖØ×°Æ÷µÄÖµ
 	TIM_TimeBaseInitStructure.TIM_Prescaler=720-1;//Ô¤·ÖÆµÆ÷µÄÖµ£¬²ÎÕÕ¹«Ê½£º¶¨Ê±ÆµÂÊ=72MHZ/(PSC+1)/(ARR+1)£¬ÉèÖÃ¶¨Ê±ÆµÂÊ
-	//Îª0.5s£¬ÔòpscÎª7200-1£¬ARRÎª10000-1£¬×¢ÒâËüÃÇµÄÖµ¶¼²»ÄÜ³¬¹ı65535£¬ÒòÎªÊÇ16Î»¶¨Ê±Æ÷
+	//Îª2hz/s,Ò²¾ÍÊÇ0.5s£¬Ò²¾ÍÊÇ500msÎªÒ»¸öÖÜÆÚ£¬ÔòpscÎª7200-1£¬ARRÎª10000-1£¬×¢ÒâËüÃÇµÄÖµ¶¼²»ÄÜ³¬¹ı65535£¬ÒòÎªÊÇ16Î»¶¨Ê±Æ÷
 	TIM_TimeBaseInitStructure.TIM_RepetitionCounter=0;//ÖØ¸´¼ÆÊıÆ÷µÄÖµ£¬ÓÃÓÚ¸ß¼¶¼ÆÊıÆ÷£¬´ËÏîÄ¿ÓÃ²»µ½£¬È¡ÖµÎª0
 	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseInitStructure);//Ê±»ùµ¥Ôª³õÊ¼»¯
 	
@@ -105,7 +105,9 @@ void EXTI15_10_IRQHandler(void)//ÖĞ¶Ïº¯Êı¶¼ÊÇÎŞ²ÎÎŞ·µ»ØÖµµÄ¡£ÖĞ¶Ïº¯ÊıÎŞĞèÉùÃ÷£¬Ò
 	{
 		if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_11)==1)
 		{
-			TIM_SetCounter(TIM2,0);
+
+			TIM_SetCounter(TIM2,0);//ÉèÖÃ¼ÆÊıÆ÷³õÊ¼ÖµÎª0£¬±ÜÃâÖĞ¶ÏÒç³ö£¨ÀıÈçT1=499ms£¬T2=25ms£¬»áÔì³ÉÊı¾İ´íÎó£©
+			//³¬Éù²¨×î´ó²âÊÔ·¶Î§ÊÇ450cm£¬°´ÕÕ¹âËÙÀ´»»ËãÊÇ13ms£¬ËùÒÔÀ´»ØÂ·³ÌĞèÒª26ms£¬´ËÊ±T2-T1=25-499,²»·ûºÏÔ¤ÆÚ
 			TIM_Cmd(TIM2, ENABLE);
 			T1=TIM_GetCounter(TIM2);
 			STEP = 2;
@@ -126,7 +128,8 @@ void EXTI15_10_IRQHandler(void)//ÖĞ¶Ïº¯Êı¶¼ÊÇÎŞ²ÎÎŞ·µ»ØÖµµÄ¡£ÖĞ¶Ïº¯ÊıÎŞĞèÉùÃ÷£¬Ò
 void TIM2_IRQHandler(void)
 {
 	
-	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET)//¶¨Ê±Æ÷µÄÖĞ¶Ï±êÖ¾Î»×´Ì¬ÉèÖÃ³É¹¦
+	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET)//¶¨Ê±Æ÷µÄÖĞ¶Ï±êÖ¾Î»×´Ì¬ÉèÖÃ³É¹¦£¬ËµÃ÷´¥·¢ÁËÖĞ¶Ï£¬ÒòÎªÃ¿0.5s´¥·¢Ò»´ÎÖĞ¶Ï£¬
+		//°´ÕÕÉùËÙÀ´¼ÆËãÊÇ170m£¬Ô¶Ô¶³¬¹ı´«¸ĞÆ÷µÄ×î´ó¿É²â·¶Î§£¬ËùÒÔÔËĞĞ´úÂë¹ı³Ì³öÏÖ´íÎó£¬´®¿ÚÎŞ·¨Õı³£´òÓ¡³ö¾àÀë
 	{
 		STEP = -1;
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);

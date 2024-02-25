@@ -22,22 +22,68 @@ Dialog DLL:      TARMSTM.DLL V1.66.0.0
  
 <h2>Project:</h2>
 C:\Users\lenovo\Desktop\Projects\05_Sensor_Distance\05_Code_Sensor_Distance\USER\Sensor.uvprojx
-Project File Date:  10/02/2023
+Project File Date:  01/22/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling main.c...
-..\FWLIB\inc\Sensor.h(9): warning:  #1295-D: Deprecated declaration Pin_Init - give arg types
-  void Pin_Init();
-..\FWLIB\inc\Sensor.h(10): warning:  #1295-D: Deprecated declaration AFIO_Exit_NVIC_Init - give arg types
-  void AFIO_Exit_NVIC_Init();
-..\FWLIB\inc\Sensor.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-main.c: 3 warnings, 0 errors
-linking...
-Program Size: Code=6480 RO-data=336 RW-data=44 ZI-data=516  
-".\Sensor.axf" - 0 Error(s), 3 Warning(s).
+compiling OLED.c...
+OLED.h(1): error:  #20: identifier "ifndef" is undefined
+  ifndef OLED_H_
+OLED.h(2): error:  #65: expected a ";"
+  define OLED_H_
+..\CMSIS\stm32f10x.h(190): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\CMSIS\core_cm3.h(1058): error:  #20: identifier "IRQn_Type" is undefined
+  static __INLINE void NVIC_EnableIRQ(IRQn_Type IRQn)
+..\CMSIS\core_cm3.h(1072): error:  #20: identifier "IRQn_Type" is undefined
+  static __INLINE void NVIC_DisableIRQ(IRQn_Type IRQn)
+..\CMSIS\core_cm3.h(1087): error:  #20: identifier "IRQn_Type" is undefined
+  static __INLINE IRQn_Type NVIC_GetPendingIRQ(IRQn_Type IRQn)
+..\CMSIS\core_cm3.h(1087): error:  #20: identifier "IRQn_Type" is undefined
+  static __INLINE IRQn_Type NVIC_GetPendingIRQ(IRQn_Type IRQn)
+..\CMSIS\core_cm3.h(1089): error:  #20: identifier "IRQn_Type" is undefined
+    return((IRQn_Type) (NVIC->ISPR[(uint32_t)(IRQn) >> 5] & (1 << ((uint32_t)(IRQn) & 0x1F))));         /* Return Interrupt bit or 'zero' */
+..\CMSIS\core_cm3.h(1101): error:  #20: identifier "IRQn_Type" is undefined
+  static __INLINE void NVIC_SetPendingIRQ(IRQn_Type IRQn)
+..\CMSIS\core_cm3.h(1115): error:  #20: identifier "IRQn_Type" is undefined
+  static __INLINE void NVIC_ClearPendingIRQ(IRQn_Type IRQn)
+..\CMSIS\core_cm3.h(1130): error:  #20: identifier "IRQn_Type" is undefined
+  static __INLINE IRQn_Type NVIC_GetActive(IRQn_Type IRQn)
+..\CMSIS\core_cm3.h(1130): error:  #20: identifier "IRQn_Type" is undefined
+  static __INLINE IRQn_Type NVIC_GetActive(IRQn_Type IRQn)
+..\CMSIS\core_cm3.h(1132): error:  #20: identifier "IRQn_Type" is undefined
+    return((IRQn_Type)(NVIC->IABR[(uint32_t)(IRQn) >> 5] & (1 << ((uint32_t)(IRQn) & 0x1F))));                        /* Return Interruptnumber or 'zero' */
+..\CMSIS\core_cm3.h(1148): error:  #20: identifier "IRQn_Type" is undefined
+  static __INLINE void NVIC_SetPriority(IRQn_Type IRQn, int32_t priority)
+..\CMSIS\core_cm3.h(1171): error:  #20: identifier "IRQn_Type" is undefined
+  static __INLINE uint32_t NVIC_GetPriority(IRQn_Type IRQn)
+..\CMSIS\core_cm3.h(1207): error:  #20: identifier "SysTick_IRQn" is undefined
+    NVIC_SetPriority (SysTick_IRQn, (1<<__NVIC_PRIO_BITS) - 1);                               /* set Priority for Cortex-M0 System Interrupts */
+OLED.h(8): warning:  #1-D: last line of file ends without a newline
+  endif
+OLED.h(8): error:  #77-D: this declaration has no storage class or type specifier
+  endif
+OLED.c(3): error:  #65: expected a ";"
+  void OLED_I2C_Init(void)
+OLED.c(84): warning:  #12-D: parsing restarts here after previous syntax error
+  			Delay10us();
+OLED.c(85): error:  #169: expected a declaration
+  			return 0;
+OLED.c(86): error:  #169: expected a declaration
+  		}
+OLED.c(89): warning:  #1295-D: Deprecated declaration Delay10us - give arg types
+  	Delay10us();
+OLED.c(89): error:  #260-D: explicit type is missing ("int" assumed)
+  	Delay10us();
+OLED.c(90): error:  #169: expected a declaration
+   	return 1;		
+OLED.c(91): warning:  #1-D: last line of file ends without a newline
+  }
+OLED.c(91): error:  #169: expected a declaration
+  }
+OLED.c: 5 warnings, 22 errors
+".\Sensor.axf" - 22 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -50,7 +96,8 @@ Package Vendor: Keil
   C:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Target not created.
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

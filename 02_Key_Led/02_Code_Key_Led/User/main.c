@@ -10,6 +10,7 @@ int main(void)
 {
 	//int i=0;
 	//int i=3;
+	SystemInit();
 	//RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);//时钟使能,在led.c中已经使能过，此处可省略
 	Led_Init();
 	Key_Init();

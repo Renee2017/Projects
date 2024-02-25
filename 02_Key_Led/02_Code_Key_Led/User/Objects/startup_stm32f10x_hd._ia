@@ -1,0 +1,5 @@
+--cpu Cortex-M3 -g --apcs=interwork 
+-IC:\Users\lenovo\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include
+-ID:\Keil_v5\ARM\CMSIS\Include
+--pd "__UVISION_VERSION SETA 536" --pd "STM32F10X_MD SETA 1"
+--list .\listings\startup_stm32f10x_hd.lst --xref -o .\objects\startup_stm32f10x_hd.o --depend .\objects\startup_stm32f10x_hd.d "..\CMSIS\startup\startup_stm32f10x_hd.s"

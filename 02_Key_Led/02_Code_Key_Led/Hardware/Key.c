@@ -20,7 +20,7 @@ void Key_Init()
 
 void Key_KeepKeyForLED()//按键一直按住灯才会亮
 {
-	if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_8)==0)//此函数表示读取输入寄存器的某一位
+	if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_8)==0)//这个函数通常用于读取连接到GPIO端口的特定引脚的状态（即数据位）
 	{
 		Delay(0x500);//delay来消抖
 		//while (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_8)==0);
@@ -63,14 +63,23 @@ void Key_tapKeyForLED()//按键每次点按，灯都会改变状态
 
 void Key_tapKeyForLED_ReadLED()//按键每次点按，都会根据灯当前亮灭去改变灯的状态
 {
-	if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_8)==0)
+	int readval = 0;
+	if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_8)==0)//根据电路图可知stm c8是低电平有效
+		/*低电平有效（Active Low）：在这种设计中，当按键未被按下时，输入端通常被拉高至高电平（例如接VCC或逻辑高）。
+当按键被按下时，电路被接通，输入端被拉至低电平（例如接地或逻辑低）。
+这种情况下，检测到低电平表示按键被按下。
+相反地，在高电平有效的设计中，按键未被按下时，输入端被拉至低电平。
+当按键被按下时，输入端变为高电平。
+这种情况下，检测到高电平表示按键被按下。*/
+		
 	{
-		Delay(0x20);
-		while (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_8)==0);//等待抬手
+		Delay(0x200);
+		while(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_8)==0);//等待抬手
 		//Delay(0x500);
 		//flag +=1;
 		//{
-			if (GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_1)==1) //确定PA1输出高电压，而灯是低电平点亮
+		  readval = GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_1);
+			if (readval==1) //确定PA1输出高电压，而灯是低电平点亮
 			{
 				Led_on();
 			}
@@ -82,4 +91,22 @@ void Key_tapKeyForLED_ReadLED()//按键每次点按，都会根据灯当前亮�
 	}	
 }
 
+
 void Key_new_tapKeyForLED_ReadLED()//按键每点按两次灯灭，每点按一次灯亮
+{	
+	static int pressCount=0;
+	if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_8)==0)
+	{
+		Delay (0x200);
+		while (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_8)==0);
+		pressCount++;
+		if (pressCount%2==0)
+		{
+			Led_on();
+		}
+		else
+		{
+			Led_off();
+		}
+	}
+}

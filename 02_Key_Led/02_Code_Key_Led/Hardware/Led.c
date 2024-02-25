@@ -1,5 +1,6 @@
 #include "Led.h"
-#include "Delay.h"
+#include "Delay.h"// 这里是为了方便理解，正确做法是.c只包自己的.h  ,  如果led.c需要delay.h  就加在led.h。而不是led.c
+//这样main.c 通过 led.h 把led.c包含时，也能一并把led.c依赖的delay.h一起包进来。
 //#include "stm32f10x.h"                  // Device header
 
 //void Led_Init()

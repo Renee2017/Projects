@@ -4,7 +4,7 @@ void Delay(__IO u32 nCount)//延时函数，通过循环的方式来达到延时
 {
   for(; nCount != 0; )
 	{
-1	nCount--;
+    nCount--;
 	}
 } 
 
@@ -25,10 +25,10 @@ int main(void)
 	int i=0;
 while(1)
 	{
-		Delay(0x50000);//Delay()当中的数字可根据实际设备的运行频率做相应调整
+		Delay(0x9);//Delay()当中的数字可根据实际设备的运行频率做相应调整
 		i++;
 		GPIO_ResetBits(GPIOA,GPIO_Pin_1);//输出设置。由于PA1口与LED负极相连，因此仅当输出低电平时LED灯才会亮,设置为低电平：
-		Delay(0x50000);
+		Delay(0x90);
 		GPIO_SetBits(GPIOA,GPIO_Pin_1);
 	}
 }

@@ -3,7 +3,7 @@
 
 void Timer_init(void)
 {
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);//开启APB1时钟，因为只有TIM1是APB2总线的外设，TIM1-8都是APB1总线的外设
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);//开启APB1时钟，因为只有TIM1、TIM8是APB2总线的外设，TIM2-7都是APB1总线的外设
 	
 	TIM_InternalClockConfig(TIM2);//选择内部时钟作为时基单元的时钟。此行代码可以省略，因为定时器默认时钟为内部时钟
 	
@@ -12,7 +12,7 @@ void Timer_init(void)
 	TIM_TimeBaseInitStructure.TIM_CounterMode=TIM_CounterMode_Up;//确定计数器的计数模式
 	TIM_TimeBaseInitStructure.TIM_Period=9999;//确定ARR自动重装器的值
 	TIM_TimeBaseInitStructure.TIM_Prescaler=7199;//预分频器的值，参照公式：定时频率=72MHZ/(PSC+1)/(ARR+1)，设置定时频率
-	//为1s，则psc为7200-1，ARR为10000-1，注意它们的值都不能超过65535，因为是16位定时器
+	//为1HZ/s，则psc为7200-1，ARR为10000-1，注意它们的值都不能超过65535，因为是16位定时器
 	TIM_TimeBaseInitStructure.TIM_RepetitionCounter=0;//重复计数器的值，用于高级计数器，此项目用不到，取值为0
 	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseInitStructure);//时基单元初始化
 	
@@ -33,7 +33,7 @@ int i=0;
 void TIM2_IRQHandler(void)
 {
 	i++;
-	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET)
+	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET)// 此函数用于获取定时器中断的状态
 	{
 		if (i%2==0)
 			Led_off();
